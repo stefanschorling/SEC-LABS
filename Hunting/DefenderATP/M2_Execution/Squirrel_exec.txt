@@ -1,0 +1,24 @@
+// Defender ATP - Execution
+//
+// Lolbin execution through squirrel update
+// https://medium.com/@reegun/nuget-squirrel-uncontrolled-endpoints-leads-to-arbitrary-code-execution-80c9df51cf12
+//
+// twitter: @mattiasborg82
+// Sec-Labs R&D
+//
+ProcessCreationEvents
+| where (ProcessCommandLine has "update.exe") or (ProcessCommandLine has "squirrel.exe")
+| where (ProcessCommandLine contains "http")
+| extend URL=extract(@"((http:|https:)+[^\s]+[\w])", 1, ProcessCommandLine)
+| where URL !in ("https://slack.com/desktop/update/windows_x64", "https://discordapp.com/api/updates/stable")
+| sort by EventTime desc 
+| project EventTime, 
+          ComputerName,
+          URL,
+          FolderPath, 
+          ProcessCommandLine, 
+          AccountName, 
+          InitiatingProcessCommandLine, 
+          ReportId, 
+          ProcessId, 
+          InitiatingProcessId
