@@ -1,10 +1,10 @@
 Function Test-WDURLS
 {
-$urls = ((iwr "https://raw.githubusercontent.com/stefanschorling/SEC-LABS/master/PowerShell/Defender/Connectitivy/urls.txt").content).split("`n")
+$urls = @((iwr "https://raw.githubusercontent.com/stefanschorling/SEC-LABS/master/PowerShell/Defender/Connectitivy/urls.txt").content).split("`n")
 
 foreach ($url in $urls)
 {
-
+ 
 	if ($url -like "http*")
 		{	
 			if ($url -like "*pki*")
@@ -62,3 +62,4 @@ foreach ($url in $urls)
 
 }
 }
+Test-WDURLS
