@@ -1,6 +1,6 @@
 Function Test-WDURLS
 {
-$urls = (iwr "https://raw.githubusercontent.com/stefanschorling/SEC-LABS/master/PowerShell/Defender/Connectitivy/urls.txt").content
+$urls = ((iwr "https://raw.githubusercontent.com/stefanschorling/SEC-LABS/master/PowerShell/Defender/Connectitivy/urls.txt").content).split("`n")
 
 foreach ($url in $urls)
 {
