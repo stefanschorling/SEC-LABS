@@ -34,8 +34,6 @@ https://winatp-gw-uks.microsoft.com/test
 https://winatp-gw-ukw.microsoft.com/test
 https://winatp-gw-usgv.microsoft.com/test
 https://winatp-gw-usgt.microsoft.com/test
-https://winatp-gw-usdc.microsoft.com/test
-https://winatp-gw-usde.microsoft.com/test
 https://eu.vortex-win.data.microsoft.com/health/keepalive
 https://us.vortex-win.data.microsoft.com/health/keepalive
 https://uk.vortex-win.data.microsoft.com/health/keepalive
